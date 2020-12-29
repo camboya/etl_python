@@ -16,7 +16,9 @@ __version__ = "1.1"
 
 import bonobo
 import time
-import requests
+import requests 
+import sqlite3
+import multicinco
 
 # Install bonobo
 #   pip3 install -U bonobo 
@@ -32,13 +34,19 @@ def extract():
     # Realice un bucle que recorra una lista del 0 al 10 inclusive
     # En cada iteración de ese bucle realizar un "yield" del valor
     # tomado de la lista
-    yield 1
+    
+    for i in range(11):
+        yield i
+    
 
 
 def transform(x):
     # Por cada número que ingrese a transform
     # multiplicarlo por 5
-    yield 1
+   
+   print('transfomo dato: {}'.format(x))
+   yield (5*x)
+    
 
 
 def load(result):
@@ -48,6 +56,8 @@ def load(result):
     # o insertando a una base de datos a elección.
     # El objetivo es que quede almacenado en un archivo
     # o una base de datos la tabla del 5
+
+    multicinco.insert_multiplo(result)
     print('Fin!')
 
 
